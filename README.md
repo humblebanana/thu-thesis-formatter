@@ -11,6 +11,8 @@ A Claude / Claude Code skill for formatting raw content (Markdown, plain text, o
 
 > Based on the official Tsinghua University thesis formatting guidelines.
 
+![Demo: paste your draft on the left, get a perfectly formatted thesis on the right](assets/demo.webp)
+
 ### What This Does
 
 This skill handles all the tedious formatting requirements of a Tsinghua thesis so you can focus on writing content. It works in conjunction with the [`docx` skill](https://github.com/YOUR_USERNAME/docx) to generate production-ready `.docx` files.
@@ -32,15 +34,16 @@ The `docx` skill must be installed alongside this skill. The agent reads `docx/S
 
 ### Installation
 
-For Claude Code users:
+The `docx` skill is **bundled** in this repository — no separate install needed.
 
 ```bash
-# 1. Install this skill
-mkdir -p ~/.claude/skills/thesis-formatter
-cp SKILL.md ~/.claude/skills/thesis-formatter/
+# 1. Clone this repo
+git clone https://github.com/humblebanana/thu-thesis-formatter.git
 
-# 2. Install the required docx skill
-git clone https://github.com/YOUR_USERNAME/docx.git ~/.claude/skills/docx
+# 2. Copy both skills into your Claude Code skills directory
+mkdir -p ~/.claude/skills
+cp -r thu-thesis-formatter/. ~/.claude/skills/thesis-formatter/
+cp -r thu-thesis-formatter/docx ~/.claude/skills/docx
 
 # 3. Install the runtime dependency
 npm install -g docx
@@ -84,15 +87,16 @@ Trigger the skill by asking your AI agent:
 
 ### 安装方法
 
-对于 Claude Code 用户：
+`docx` skill 已经打包在本仓库中，无需单独安装。
 
 ```bash
-# 1. 安装本排版 Skill
-mkdir -p ~/.claude/skills/thesis-formatter
-cp SKILL.md ~/.claude/skills/thesis-formatter/
+# 1. Clone 本仓库
+git clone https://github.com/humblebanana/thu-thesis-formatter.git
 
-# 2. 安装必需的 docx 基础 Skill
-git clone https://github.com/YOUR_USERNAME/docx.git ~/.claude/skills/docx
+# 2. 将两个 skill 复制到 Claude Code 的 skills 目录
+mkdir -p ~/.claude/skills
+cp -r thu-thesis-formatter/. ~/.claude/skills/thesis-formatter/
+cp -r thu-thesis-formatter/docx ~/.claude/skills/docx
 
 # 3. 安装运行时依赖
 npm install -g docx
