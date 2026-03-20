@@ -32,15 +32,19 @@ This skill requires the [`docx` skill](https://github.com/anthropics/skills/tree
 
 ### Installation
 
+> **Note:** `~/.claude/skills/` is the default skills directory for Claude Code on macOS/Linux. Adjust the path if your setup differs.
+
 ```bash
-# 1. Clone this repo into your Claude Code skills directory
+# 1. Install this skill
 git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. Install the official docx skill (required dependency)
-git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+# 2. Install the docx skill (required dependency)
+#    Uses sparse-checkout to download only the docx skill, not the entire repo
+git clone --filter=blob:none --sparse https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cd /tmp/anthropic-skills && git sparse-checkout set skills/docx
 cp -r /tmp/anthropic-skills/skills/docx ~/.claude/skills/docx
 
-# 3. Install the runtime dependency
+# 3. Install the Node.js runtime dependency (used to generate .docx files)
 npm install -g docx
 ```
 
@@ -80,15 +84,19 @@ Trigger the skill by asking your AI agent:
 
 ### 安装方法
 
+> **注意：** `~/.claude/skills/` 是 Claude Code 在 macOS/Linux 下的默认 skills 目录，请根据你的实际配置调整路径。
+
 ```bash
-# 1. Clone 本仓库到 Claude Code 的 skills 目录
+# 1. 安装本 Skill
 git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. 安装官方 docx skill（必需依赖）
-git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+# 2. 安装 docx skill（必需依赖）
+#    使用 sparse-checkout，只下载 docx skill，不拉取整个仓库
+git clone --filter=blob:none --sparse https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cd /tmp/anthropic-skills && git sparse-checkout set skills/docx
 cp -r /tmp/anthropic-skills/skills/docx ~/.claude/skills/docx
 
-# 3. 安装运行时依赖
+# 3. 安装 Node.js 运行时依赖（用于生成 .docx 文件）
 npm install -g docx
 ```
 
