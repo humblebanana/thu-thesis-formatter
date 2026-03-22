@@ -47,9 +47,7 @@ Each part starts on a new page. The order is:
 9. 参考文献 (References)
 10. 附录 (Appendices)
 11. 致谢 (Acknowledgments)
-12. 声明 (Declaration)
-13. 在学期间参加课题的研究成果 (Research achievements, if any)
-14. 综合论文训练记录表 (Thesis record form)
+
 
 ---
 
